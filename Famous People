@@ -1,0 +1,87 @@
+/* I created a table of famous singers */
+
+CREATE TABLE singers (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT,
+    birthplace TEXT,
+    networth INTEGER,
+    genre TEXT);
+    
+INSERT INTO singers (name, birthplace, networth, genre)
+VALUES ("Beyonce", "Houston, Texas", "540000000000", "R&B");
+INSERT INTO singers (name, birthplace, networth, genre)
+VALUES ("The Weeknd", "Toronto, Onterio", "300000000", "R&B");
+INSERT INTO singers (name, birthplace, networth, genre)
+VALUES ("Taylor Swift", "Reading, Pennsylvania", "740000000", "pop");
+INSERT INTO singers (name, birthplace, networth, genre)
+VALUES ("Snoop Dogg", "Long Beach, California", "165000000", "rap");
+INSERT INTO singers (name, birthplace, networth, genre)
+VALUES ("Justin Bieber", "Stratford, Onterio", "300000000", "pop");
+INSERT INTO singers (name, birthplace, networth, genre)
+VALUES ("Selena Gomez", "Grand Prairie, Texas", "800000000", "pop");
+INSERT INTO singers (name, birthplace, networth, genre)
+VALUES ("Bruno Mars", "Honolulu, Hawaii", "175000000", "pop");
+INSERT INTO singers (name, birthplace, networth, genre)
+VALUES ("Jay-Z", "Brooklyn, New York", "2500000000", "rap");
+
+/* Here I created a second table of songs sung by those singers above */ 
+
+CREATE TABLE songs (id INTEGER PRIMARY KEY AUTOINCREMENT,
+singers_id INTEGER,
+name TEXT,
+streams INTEGER);
+
+INSERT INTO songs (singers_id, name, streams)
+VALUES ("1", "Perfect", "768194699");
+INSERT INTO songs (singers_id, name, streams)
+VALUES ("1", "Single Ladies", "581602200");
+INSERT INTO songs (singers_id, name, streams)
+VALUES ("1", "Irreplacable", "539931529");
+INSERT INTO songs (singers_id, name, streams)
+VALUES ("2", "Blinding Lights", "3802041429");
+INSERT INTO songs (singers_id, name, streams)
+VALUES ("2", "Save Your Tears", "1660273516");
+INSERT INTO songs (singers_id, name, streams)
+VALUES ("2", "Die For You", "1766416857");
+INSERT INTO songs (singers_id, name, streams)
+VALUES ("3", "Shake It Off", "1184397727");
+INSERT INTO songs (singers_id, name, streams)
+VALUES ("3", "You Belong With Me", "415091470");
+INSERT INTO songs (singers_id, name, streams)
+VALUES ("3", "Love Story", "501009891");
+INSERT INTO songs (singers_id, name, streams)
+VALUES ("4", "Young, Wild & Free", "1273620046");
+INSERT INTO songs (singers_id, name, streams)
+VALUES ("4", "Drop It Like Its Hot", "527569985");
+INSERT INTO songs (singers_id, name, streams)
+VALUES ("4", "Buttons", "331459509");
+INSERT INTO songs (singers_id, name, streams)
+VALUES ("5", "Stay", "2754139332");
+INSERT INTO songs (singers_id, name, streams)
+VALUES ("5", "Ghost", "1235445309");
+INSERT INTO songs (singers_id, name, streams)
+VALUES ("5", "Sorry", "1871482745");
+INSERT INTO songs (singers_id, name, streams)
+VALUES ("6", "Calm Down", "1021450162");
+INSERT INTO songs (singers_id, name, streams)
+VALUES ("6", "Love You Like a Love Song", "694364175");
+INSERT INTO songs (singers_id, name, streams)
+VALUES ("6", "Same Old Love", "600827208");INSERT INTO songs (singers_id, name, streams)
+VALUES ("7", "Uptown Funk", "1801852953");
+INSERT INTO songs (singers_id, name, streams)
+VALUES ("7", "That's What I Like", "1767027439");
+INSERT INTO songs (singers_id, name, streams)
+VALUES ("7", "Just The Way You Are", "1711779030");
+INSERT INTO songs (singers_id, name, streams)
+VALUES ("8", "Ni**as In Paris", "1237420909");
+INSERT INTO songs (singers_id, name, streams)
+VALUES ("8", "Empire State Of Mind", "827915311");
+INSERT INTO songs (singers_id, name, streams)
+VALUES ("8", "Numb/Encore", "883825317");
+
+/* Here I joined the two tables to show the artist next to their songs */ 
+
+SELECT singers.name as Artist, songs.name as Songs
+FROM singers
+JOIN songs
+ON singers.id = songs.singers_id;
